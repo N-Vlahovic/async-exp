@@ -34,6 +34,9 @@ async def request(
         timeout: int = TIMEOUT,
         **kwargs
 ) -> aiohttp.ClientResponse:
+    """
+    Abstract asynchronous request.
+    """
     async with session.request(method=method, url=url, timeout=timeout, **kwargs) as response:
         return response
 
