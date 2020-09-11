@@ -39,6 +39,9 @@ async def request(
 
 
 async def fun_a(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
+    """
+    First sequential call (`fun_b` depends on it).
+    """
     print_job_started("fun_a")
     response = await request(session=session, method="get", url=URL_A)
     print_job_finished("fun_a")
@@ -46,6 +49,9 @@ async def fun_a(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
 
 
 async def fun_b(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
+    """
+    Second sequential call (depends on `fun_a`).
+    """
     print_job_started("fun_b")
     response_a = await fun_a(session=session)
     response_b = await request(session=session, method="get", url=response_a.url)
@@ -54,6 +60,9 @@ async def fun_b(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
 
 
 async def fun_c(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
+    """
+    Independent of all other calls.
+    """
     print_job_started("fun_c")
     response_c = await request(session=session, method="get", url=URL_C)
     print_job_finished("fun_c")
