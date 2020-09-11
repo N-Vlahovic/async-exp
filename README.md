@@ -17,3 +17,7 @@ Besides, imagine this process is to be iterated over a list of initial inputs
 `[INPUT_A_1, INPUT_A_2, ..., INPUT_A_N]`. For any two `(INPUT_A_I, INPUT_A_J)`,
 the execution of FullService will be independent, i.e. `FullService(INPUT_A_I)`
 and `FullService(INPUT_A_J)` can be executed asynchronously.
+
+Hence our task boils down to calling `FullService` asynchronously
+iterating over all `INPUT_A_I; I=1,...N` while maintaining the
+synchronicity of internal calls within `FullService`.
