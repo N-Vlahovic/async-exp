@@ -76,10 +76,10 @@ async def _main():
     async with aiohttp.ClientSession() as session:
         return await asyncio.gather(*[
             asyncio.ensure_future(fun_b(session=session)),
-            asyncio.ensure_future(fun_b(session=session)),
+            asyncio.ensure_future(fun_c(session=session)),
             asyncio.ensure_future(fun_b(session=session)),
             asyncio.ensure_future(fun_c(session=session)),
-            asyncio.ensure_future(fun_c(session=session)),
+            asyncio.ensure_future(fun_b(session=session)),
             asyncio.ensure_future(fun_c(session=session)),
         ])
 
@@ -94,21 +94,19 @@ if __name__ == '__main__':
     res = main()
     # fun_b STARTED
     # fun_a STARTED
+    # fun_c STARTED
     # fun_b STARTED
     # fun_a STARTED
+    # fun_c STARTED
     # fun_b STARTED
     # fun_a STARTED
     # fun_c STARTED
-    # fun_c STARTED
-    # fun_c STARTED
+    # fun_a FINISHED
     # fun_a FINISHED
     # fun_a FINISHED
     # fun_c FINISHED
     # fun_c FINISHED
     # fun_c FINISHED
-    # fun_a FINISHED
     # fun_b FINISHED
     # fun_b FINISHED
     # fun_b FINISHED
-    for r in res:
-        print(r.url)
