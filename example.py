@@ -45,7 +45,7 @@ async def fun_a(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
     return response
 
 
-async def fun_b(session: aiohttp.ClientSession) -> aiohttp:
+async def fun_b(session: aiohttp.ClientSession) -> aiohttp.ClientResponse:
     print_job_started("fun_b")
     response_a = await fun_a(session=session)
     response_b = await request(session=session, method="get", url=response_a.url)
