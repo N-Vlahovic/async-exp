@@ -80,5 +80,23 @@ def main():
 
 if __name__ == '__main__':
     res = main()
+    # fun_b STARTED
+    # fun_a STARTED
+    # fun_b STARTED
+    # fun_a STARTED
+    # fun_b STARTED
+    # fun_a STARTED
+    # fun_c STARTED
+    # fun_c STARTED
+    # fun_c STARTED
+    # fun_a FINISHED
+    # fun_a FINISHED
+    # fun_c FINISHED
+    # fun_c FINISHED
+    # fun_c FINISHED
+    # fun_a FINISHED
+    # fun_b FINISHED
+    # fun_b FINISHED
+    # fun_b FINISHED
     for r in res:
         print(r.url)
