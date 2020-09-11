@@ -2,7 +2,7 @@
 We will herein experiment with synchronous requests in an asynchronous setup:
 
 Imagine given a fixed `INPUT_A` one desires to fetch `OUTPUT`, 
-where `OUTPUT` is obtained as follows do the following: 
+where `OUTPUT` is obtained as follows: 
 
     1. Call ServiceA(INPUT=INPUT_A) --> RESPONSE_A
     2. ProcessServiceAResponse(RESPONSE_A) --> INPUT_B
